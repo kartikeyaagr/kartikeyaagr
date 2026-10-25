@@ -11,11 +11,11 @@ Maths & CS, Ashoka University (2026). Jaipur, India.
 - [SmartRoute](https://github.com/kartikeyaagr/SmartRoute) - LLM inference router
   plus the harness that tests whether routing pays. On 200 everyday queries,
   always-cheap matched routed accuracy at about a quarter of the cost.
-- [Khana classifier](https://github.com/kartikeyaagr/CV-Task-1-Khana-Classification) -
+- [Khana classifier](https://github.com/kartikeyaagr/Khana-Thali-Vision) -
   ConvNeXt-Small fine-tuned on the [Khana dataset](https://arxiv.org/abs/2509.06006)
   (131K images, 80 Indian dishes), 95.78% top-1 on the test set. Extended to
-  [thali compartment detection](https://github.com/kartikeyaagr/CV-Task-2-Thali-Detection)
-  with YOLOv8n and [top-down view correction](https://github.com/kartikeyaagr/CV-Task-3-BEV)
+  [thali compartment detection](https://github.com/kartikeyaagr/Khana-Thali-Vision#task-2-thali-compartment-detection)
+  with YOLOv8n and [top-down view correction](https://github.com/kartikeyaagr/Khana-Thali-Vision#task-3-top-down-view-correction)
   via homography.
 - [Sortino](https://github.com/kartikeyaagr/Sortino) - Rainbow DQN equity trading
   agent with a CVaR penalty in the reward, trained for risk-adjusted return
