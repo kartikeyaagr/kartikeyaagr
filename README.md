@@ -6,7 +6,7 @@ so its README leads with that.
 
 Maths & CS, Ashoka University (2026). Jaipur, India.
 
-## Selected work
+## Work
 
 - [SmartRoute](https://github.com/kartikeyaagr/SmartRoute) - LLM inference router
   plus the harness that tests whether routing pays. On 200 everyday queries,
