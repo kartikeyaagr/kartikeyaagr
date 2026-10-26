@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 380" width="576" height="380" role="img" aria-label="Khana Thali Vision: dish classifier with 95.78% top-1 accuracy on 80 Indian dishes, then thali compartment detection and top-down correction. Trained on the Khana dataset (arXiv:2509.06006) by Omkar Prabhu.">
+  <defs><clipPath id="card"><rect x="6" y="3.5" width="564" height="373.0" rx="24"/></clipPath></defs>
+  <g clip-path="url(#card)">
+    <rect x="6" y="3.5" width="564" height="373.0" fill="#121212"/>
+
+    <text x="30" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="28" font-weight="600" fill="#d4d0c8" text-anchor="start" >Khana Thali Vision</text><text x="30" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#888880" text-anchor="start" >Indian food, dish to whole thali</text>
+    <circle cx="152" cy="238" r="118" fill="#1a1a1a" stroke="#2c2c2c" stroke-width="2"/>
+    <circle cx="152" cy="238" r="107" fill="none" stroke="#242424"/>
+    <circle cx="83" cy="190" r="34" fill="#202020" stroke="#333"/><circle cx="83" cy="190" r="30" fill="#c8962f" opacity="0.85"/><circle cx="224" cy="189" r="34" fill="#202020" stroke="#333"/><circle cx="224" cy="189" r="30" fill="#76863b" opacity="0.85"/><circle cx="228" cy="289" r="33" fill="#202020" stroke="#333"/><circle cx="228" cy="289" r="28" fill="#e2dccd" opacity="0.85"/><circle cx="147" cy="324" r="27" fill="#202020" stroke="#333"/><circle cx="147" cy="324" r="23" fill="#a8452f" opacity="0.85"/><ellipse cx="150" cy="243" rx="39" ry="30" fill="#e9e3d3" opacity="0.9"/><ellipse cx="71" cy="271" rx="19" ry="15" fill="#d9d1bf" stroke="#bdb4a0"/><ellipse cx="90" cy="296" rx="19" ry="15" fill="#d9d1bf" stroke="#bdb4a0"/>
+    <rect x="49" y="155" width="70" height="70" rx="4" fill="none" stroke="#e8684a" stroke-width="2.5"
+          stroke-dasharray="280" stroke-dashoffset="280">
+      <animate attributeName="stroke-dashoffset" from="280" to="0" dur="0.6s" begin="0.6s" fill="freeze"/></rect>
+    <g opacity="0"><set attributeName="opacity" to="1" begin="1.2s" fill="freeze"/>
+      <rect x="49" y="125" width="56" height="28" rx="5" fill="#e8684a"/>
+      <text x="58" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="#0c0c0c" text-anchor="start" >dal</text></g>
+    <rect x="189" y="153" width="70" height="70" rx="4" fill="none" stroke="#e8684a" stroke-width="2.5"
+          stroke-dasharray="280" stroke-dashoffset="280">
+      <animate attributeName="stroke-dashoffset" from="280" to="0" dur="0.6s" begin="1.2s" fill="freeze"/></rect>
+    <g opacity="0"><set attributeName="opacity" to="1" begin="1.7999999999999998s" fill="freeze"/>
+      <rect x="189" y="123" width="80" height="28" rx="5" fill="#e8684a"/>
+      <text x="198" y="144" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="#0c0c0c" text-anchor="start" >sabzi</text></g>
+    <rect x="48" y="252" width="66" height="64" rx="4" fill="none" stroke="#e8684a" stroke-width="2.5"
+          stroke-dasharray="260" stroke-dashoffset="260">
+      <animate attributeName="stroke-dashoffset" from="260" to="0" dur="0.6s" begin="1.8s" fill="freeze"/></rect>
+    <g opacity="0"><set attributeName="opacity" to="1" begin="2.4s" fill="freeze"/>
+      <rect x="48" y="318" width="68" height="28" rx="5" fill="#e8684a"/>
+      <text x="57" y="339" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="#0c0c0c" text-anchor="start" >idli</text></g>
+    <text x="300" y="206" font-family="Georgia, 'Times New Roman', serif" font-size="62" font-weight="normal" fill="#e8684a" text-anchor="start" >95.78%</text>
+    <text x="300" y="242" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#888880" text-anchor="start" >top-1 · 80 dishes</text>
+    <text x="300" y="290" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="22" font-weight="normal" fill="#d4d0c8" text-anchor="start" >classify</text><text x="300" y="320" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="22" font-weight="normal" fill="#888880" text-anchor="start" >→ detect</text><text x="300" y="350" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="22" font-weight="normal" fill="#888880" text-anchor="start" >→ top-down</text>
+  </g>
+  <rect x="6.5" y="4.0" width="563" height="372.0" rx="24" fill="none" stroke="#222"/>
+</svg>

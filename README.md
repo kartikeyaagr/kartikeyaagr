@@ -1,35 +1,19 @@
-# Kartikeya Agrawal
+<p align="center">
+<a href="https://kartikeyaagr.com/?ref=github"><img src="assets/intro.svg" width="497" alt="Kartikeya Agrawal. AI engineer building tools for the common man. Maths &amp; CS, Ashoka University '26. Jaipur, India." /></a><a href="https://kartikeyaagr.com/?ref=github"><img src="assets/orbit.svg" width="331" alt="I benchmark it before I believe it." /></a><br>
+<a href="https://github.com/kartikeyaagr/Khana-Thali-Vision"><img src="assets/khana.svg" width="497" alt="Khana Thali Vision: dish classifier with 95.78% top-1 accuracy on 80 Indian dishes, then thali compartment detection and top-down correction." /></a><a href="https://github.com/kartikeyaagr/SmartRoute"><img src="assets/smartroute.svg" width="331" alt="SmartRoute: an LLM inference router plus the harness that tests whether routing pays. On 200 everyday queries, always-cheap matched routed accuracy at about a quarter of the cost." /></a><br>
+<a href="https://github.com/kartikeyaagr/Quark"><img src="assets/quark.svg" width="331" alt="Quark: a decoder-only LLM built from scratch in PyTorch with grouped-query attention, RoPE, SwiGLU, Exclusive Self Attention and TurboQuant KV-cache compression. 56 tests passing." /></a><a href="https://github.com/kartikeyaagr/fast-laya-compaction"><img src="assets/laya.svg" width="497" alt="fast-laya-compaction: Claude Code compaction that keeps every message verbatim and trims stale tool output instead, decided by a 421M-parameter classifier running locally. 27 to 33% smaller on real sessions." /></a><br>
+<a href="https://kartikeyaagr.com/?ref=github"><img src="assets/status.svg" width="276" alt="Status, October 2026: open to AI/ML engineering roles." /></a><a href="https://kartikeyaagr.com/?ref=github"><img src="assets/site.svg" width="276" alt="website: kartikeyaagr.com" /></a><a href="mailto:kartikay3@outlook.com"><img src="assets/email.svg" width="276" alt="email: kartikay3@outlook.com" /></a>
+</p>
 
-I build AI and quant systems and benchmark them before I believe them. My LLM
-router's own harness showed that routing wasn't worth it on everyday traffic,
-so its README leads with that.
-
-Maths & CS, Ashoka University (2026). Jaipur, India.
-
-## Work
-
-- [SmartRoute](https://github.com/kartikeyaagr/SmartRoute) - LLM inference router
-  plus the harness that tests whether routing pays. On 200 everyday queries,
-  always-cheap matched routed accuracy at about a quarter of the cost.
-- [Khana classifier](https://github.com/kartikeyaagr/Khana-Thali-Vision) -
-  ConvNeXt-Small fine-tuned on the [Khana dataset](https://arxiv.org/abs/2509.06006)
-  (131K images, 80 Indian dishes), 95.78% top-1 on the test set. Extended to
-  [thali compartment detection](https://github.com/kartikeyaagr/Khana-Thali-Vision#task-2-thali-compartment-detection)
-  with YOLOv8n and [top-down view correction](https://github.com/kartikeyaagr/Khana-Thali-Vision#task-3-top-down-view-correction)
-  via homography.
-- [Sortino](https://github.com/kartikeyaagr/Sortino) - Rainbow DQN equity trading
-  agent with a CVaR penalty in the reward, trained for risk-adjusted return
-  rather than raw profit.
-
-## Now
-
-October 2026: looking for AI/ML engineering and quant research roles. My most
-recent work, a research and portfolio system for a long-only fund, is private.
-
-## Contact
-
-[kartikeyaagr.com](https://kartikeyaagr.com/?ref=github) · kartikay3@outlook.com
+<p align="center"><sub>
+Most recently built the research desk for an Indian long-only fund (private).
+Also: <a href="https://github.com/kartikeyaagr/Media-Bias-Analysis">Media Bias Analysis</a>, political lean and framing in Indian news ·
+<a href="https://github.com/kartikeyaagr/Sortino">Sortino</a>, an RL trading agent.<br>
+Khana Thali Vision trains on the <a href="https://arxiv.org/abs/2509.06006">Khana dataset</a> (arXiv:2509.06006) by Omkar Prabhu.
+</sub></p>
 
 <!-- Owner: Kartikeya. Last reviewed: 24 Oct 2026.
 Review when: starting a new role, publishing a new project, adding Sortino
-results, or sending a new batch of applications. -->
+results, or sending a new batch of applications.
+Tiles are generated SVGs: edit assets/make_assets.py, then run
+`python3 assets/make_assets.py assets`. Palette from kartikeyaagr.com. -->

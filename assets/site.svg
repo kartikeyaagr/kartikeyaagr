@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 150" width="320" height="150" role="img" aria-label="website: kartikeyaagr.com">
+  <defs><clipPath id="card"><rect x="6" y="3.5" width="308" height="143.0" rx="24"/></clipPath></defs>
+  <g clip-path="url(#card)">
+    <rect x="6" y="3.5" width="308" height="143.0" fill="#121212"/>
+
+    <text x="30" y="52" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="normal" fill="#555" text-anchor="start" >website</text><text x="290" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#e8684a" text-anchor="end" >↗</text>
+    <text x="30" y="108" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="normal" fill="#d4d0c8" text-anchor="start" >kartikeyaagr.com</text>
+  </g>
+  <rect x="6.5" y="4.0" width="307" height="142.0" rx="24" fill="none" stroke="#222"/>
+</svg>

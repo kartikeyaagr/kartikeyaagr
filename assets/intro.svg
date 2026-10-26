@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 380" width="576" height="380" role="img" aria-label="Kartikeya Agrawal. AI engineer building tools for the common man. Maths &amp; CS, Ashoka University '26. Jaipur, India.">
+  <defs><clipPath id="card"><rect x="6" y="3.5" width="564" height="373.0" rx="24"/></clipPath></defs>
+  <g clip-path="url(#card)">
+    <rect x="6" y="3.5" width="564" height="373.0" fill="#121212"/>
+
+    <text x="40" y="116" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="normal" fill="#d4d0c8" text-anchor="start" >Kartikeya</text>
+    <text x="40" y="192" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="normal" fill="#d4d0c8" text-anchor="start" >Agrawal</text>
+    <rect x="42" y="214" width="56" height="3" fill="#e8684a"/>
+    <text x="40" y="262" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#888880" text-anchor="start" >AI engineer building tools</text>
+    <text x="40" y="296" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#888880" text-anchor="start" >for the common man</text>
+    <text x="40" y="346" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="22" font-weight="normal" fill="#555" text-anchor="start" >Maths &amp; CS · Ashoka '26 · Jaipur</text>
+  </g>
+  <rect x="6.5" y="4.0" width="563" height="372.0" rx="24" fill="none" stroke="#222"/>
+</svg>
