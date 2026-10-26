@@ -1,6 +1,6 @@
-"""Generate the bento profile tiles (kartikeyaagr.com palette). Usage: python3 assets/make_assets.py assets
+"""Generate the bento profile tiles. Usage: python3 assets/make_assets.py assets
 
-Every README row is 960 units wide (576 + 384, or 3 x 320) and the README shows
+Every README row is 960 units wide (576 + 384, 2 x 480) and the README shows
 it at 828 px, so all tiles share one scale on desktop. Tiles have fixed pixel
 widths, so on a narrow screen they wrap onto their own lines and grow. The
 binding case is a 576-unit tile on a ~311 px phone column (x0.54): text on wide
@@ -14,10 +14,14 @@ import sys
 from pathlib import Path
 from xml.sax.saxutils import escape
 
+# Graphite palette. card: tile; raise: insets on a tile; line / line2: hairlines,
+# faint and stronger; ink: text set on the accent colour
+CARD, RAISE, LINE, LINE2, BORDER = "#111317", "#181b21", "#22262e", "#323844", "#22262e"
+TEXT, DIM, MUTED, ACCENT, INK = "#e6e8ec", "#8b93a1", "#5d6470", "#5b8cff", "#0b0d11"
+
 OUT = Path(sys.argv[1])
 OUT.mkdir(parents=True, exist_ok=True)
 
-CARD, BORDER, TEXT, DIM, MUTED, ACCENT, INK = "#121212", "#222", "#d4d0c8", "#888880", "#555", "#e8684a", "#0c0c0c"
 SERIF = "Georgia, 'Times New Roman', serif"
 SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
 MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace"
@@ -38,16 +42,16 @@ def tile(name, w, h, body, label, defs=""):
     (OUT / f"{name}.svg").write_text(svg)
 
 
-def t(x, y, s, size, fill=TEXT, font=SANS, weight="normal", anchor="start", extra=""):
+def t(x, y, s, size, fill=None, font=SANS, weight="normal", anchor="start", extra=""):
     return (f'<text x="{x}" y="{y}" font-family="{font}" font-size="{size}" font-weight="{weight}" '
-            f'fill="{fill}" text-anchor="{anchor}" {extra}>{escape(s)}</text>')
+            f'fill="{fill or TEXT}" text-anchor="{anchor}" {extra}>{escape(s)}</text>')
 
 
 def title(name, sub, size=24, sub_size=16, x=30):
     return t(x, 62, name, size, weight="600") + t(x, 62 + sub_size + 14, sub, sub_size, DIM)
 
 
-# ── Row 1: intro + orbit (the old hero, split so each half survives a phone) ──
+# ── Row 1: intro + orbit ──────────────────────────────────────────────────────
 def intro():
     body = f"""
     {t(40, 116, "Kartikeya", 76, font=SERIF)}
@@ -62,7 +66,7 @@ def intro():
 
 def orbit():
     cx, cy = 192, 152
-    rings = "".join(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#262626"/>' for r in (44, 78, 112))
+    rings = "".join(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{LINE}"/>' for r in (44, 78, 112))
     body = f"""
     <circle cx="{cx}" cy="{cy}" r="170" fill="url(#glow)">
       <animate attributeName="opacity" values="0.7;1;0.7" dur="6s" repeatCount="indefinite"/></circle>
@@ -84,7 +88,7 @@ def khana():
     cx, cy, k = 152, 238, 0.88
     food = [(-78, -54, 34, "#c8962f"), (82, -56, 34, "#76863b"), (86, 58, 32, "#e2dccd"), (-6, 98, 26, "#a8452f")]
     bowls = "".join(
-        f'<circle cx="{cx + dx * k:.0f}" cy="{cy + dy * k:.0f}" r="{(r + 5) * k:.0f}" fill="#202020" stroke="#333"/>'
+        f'<circle cx="{cx + dx * k:.0f}" cy="{cy + dy * k:.0f}" r="{(r + 5) * k:.0f}" fill="{RAISE}" stroke="{LINE2}"/>'
         f'<circle cx="{cx + dx * k:.0f}" cy="{cy + dy * k:.0f}" r="{r * k:.0f}" fill="{c}" opacity="0.85"/>'
         for dx, dy, r, c in food)
     rice = f'<ellipse cx="{cx - 2}" cy="{cy + 5}" rx="39" ry="30" fill="#e9e3d3" opacity="0.9"/>'
@@ -111,8 +115,8 @@ def khana():
                     for i, s in enumerate(["classify", "→ detect", "→ top-down"]))
     body = f"""
     {title("Khana Thali Vision", "Indian food, dish to whole thali", 28, 22)}
-    <circle cx="{cx}" cy="{cy}" r="118" fill="#1a1a1a" stroke="#2c2c2c" stroke-width="2"/>
-    <circle cx="{cx}" cy="{cy}" r="107" fill="none" stroke="#242424"/>
+    <circle cx="{cx}" cy="{cy}" r="118" fill="{RAISE}" stroke="{LINE2}" stroke-width="2"/>
+    <circle cx="{cx}" cy="{cy}" r="107" fill="none" stroke="{LINE}"/>
     {bowls}{rice}{idli}{det}
     {t(300, 206, "95.78%", 62, ACCENT, SERIF)}
     {t(300, 242, "top-1 · 80 dishes", 22, DIM)}
@@ -130,9 +134,9 @@ def smartroute():
         d = f"M{qx + 8},{qy} C{qx + 90},{qy} {tx - 90},{y} {tx - 8},{y}"
         dash = "" if win else ' stroke-dasharray="4 5"'
         cheap = d if win else cheap
-        paths += (f'<path d="{d}" fill="none" stroke="{ACCENT if win else "#333"}" '
+        paths += (f'<path d="{d}" fill="none" stroke="{ACCENT if win else LINE2}" '
                   f'stroke-width="{2.5 if win else 1.5}"{dash}/>')
-        nodes += (f'<circle cx="{tx}" cy="{y}" r="7" fill="{ACCENT if win else "#2a2a2a"}" stroke="{ACCENT if win else "#444"}"/>'
+        nodes += (f'<circle cx="{tx}" cy="{y}" r="7" fill="{ACCENT if win else RAISE}" stroke="{ACCENT if win else LINE2}"/>'
                   + t(tx + 16, y + 6, name, 16, TEXT if win else DIM, MONO))
     body = f"""
     {title("SmartRoute", "LLM inference router + its own test")}
@@ -156,7 +160,7 @@ def quark():
         for j in range(n):
             x, y = x0 + j * (c + g), y0 + i * (c + g)
             if j > i:
-                cells += f'<rect x="{x}" y="{y}" width="{c}" height="{c}" rx="3" fill="none" stroke="#1f1f1f"/>'
+                cells += f'<rect x="{x}" y="{y}" width="{c}" height="{c}" rx="3" fill="none" stroke="{LINE}"/>'
                 continue
             o = min(1, 0.12 + 0.8 * math.exp(-(i - j) / 2.2) * rnd.uniform(0.55, 1))
             pulse = ""
@@ -186,7 +190,7 @@ def laya():
     out = ""
     for k, (role, text, fate, b) in enumerate(rows):
         y = 136 + 39 * k
-        out += f'<rect x="24" y="{y - 25}" width="528" height="34" rx="6" fill="#161616"/>'
+        out += f'<rect x="24" y="{y - 25}" width="528" height="34" rx="6" fill="{RAISE}"/>'
         out += t(36, y, role, 22, ACCENT if role == "claude" else DIM, MONO)
         if not fate:
             out += t(134, y, text, 22, TEXT, MONO)
@@ -206,27 +210,61 @@ def laya():
          "stale tool output instead, decided by a 421M-parameter classifier running locally. 27 to 33% smaller on real sessions.")
 
 
-# ── Small tiles: status and the two ways to reach me ──────────────────────────
-def small():
-    status = f"""
-    <circle cx="38" cy="46" r="6" fill="{ACCENT}"/>
-    <circle cx="38" cy="46" r="6" fill="none" stroke="{ACCENT}">
+# ── FinePrint: a terms page whose risky clauses light up ──────────────────────
+def fineprint():
+    rnd, dx, dy, dw = random.Random(5), 34, 118, 214
+    lines, flags = "", {2: 0.6, 5: 1.2, 8: 1.8}   # line index -> begin
+    for i in range(10):
+        y, w = dy + 26 + 16 * i, rnd.randint(128, 176)
+        lines += f'<rect x="{dx + 18}" y="{y}" width="{w}" height="6" rx="3" fill="{LINE2}"/>'
+        if i in flags:
+            b = flags[i]
+            lines += f"""<rect x="{dx + 14}" y="{y - 5}" width="0" height="16" rx="4" fill="{ACCENT}" opacity="0.35">
+      <animate attributeName="width" from="0" to="{w + 8}" begin="{b}s" dur="0.4s" fill="freeze"/></rect>
+    <circle cx="{dx + dw - 14}" cy="{y + 3}" r="5" fill="{ACCENT}" opacity="0">
+      <set attributeName="opacity" to="1" begin="{b + 0.4}s" fill="freeze"/></circle>"""
+    flagged = "".join(t(290, 238 + 30 * i, s, 22, TEXT if i == 0 else DIM, MONO)
+                      for i, s in enumerate(["• arbitration", "• data sale", "• auto-renewal"]))
+    body = f"""
+    {title("FinePrint", "a nutrition label for Terms & Conditions", 28, 22)}
+    {t(546, 62, "chrome extension", 22, MUTED, MONO, anchor="end")}
+    <rect x="{dx}" y="{dy}" width="{dw}" height="190" rx="10" fill="{RAISE}" stroke="{LINE}"/>
+    {lines}
+    {t(290, 168, "10", 62, ACCENT, SERIF)}
+    {t(360, 166, "red-flag", 22, DIM)}
+    {t(360, 192, "patterns", 22, DIM)}
+    {flagged}"""
+    tile("fineprint", 576, 340, body, "FinePrint: a Chrome extension that finds a site's Terms & Conditions and Privacy Policy "
+         "and gives a plain-English summary with a 1-10 security score, flagging 10 red-flag patterns such as forced "
+         "arbitration, data sale and auto-renewal.")
+
+
+# ── Status, then the two ways to reach me ─────────────────────────────────────
+def status():
+    body = f"""
+    <circle cx="38" cy="48" r="6" fill="{ACCENT}"/>
+    <circle cx="38" cy="48" r="6" fill="none" stroke="{ACCENT}">
       <animate attributeName="r" values="6;16" dur="2s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.8;0" dur="2s" repeatCount="indefinite"/></circle>
-    {t(56, 52, "status", 16, MUTED, MONO)}{t(290, 52, "Oct 2026", 16, MUTED, MONO, anchor="end")}
-    {t(30, 96, "Open to AI/ML", 22, TEXT, weight="600")}
-    {t(30, 124, "engineering roles", 22, TEXT, weight="600")}"""
-    tile("status", 320, 150, status, "Status, October 2026: open to AI/ML engineering roles.")
-    for name, label, value, size, font in [("site", "website", "kartikeyaagr.com", 26, SERIF),
-                                           ("email", "email", "kartikay3@outlook.com", 19, SANS)]:
+    {t(56, 54, "status", 18, MUTED, MONO)}{t(354, 54, "Oct 2026", 18, MUTED, MONO, anchor="end")}
+    {t(30, 164, "Open to", 36, TEXT, weight="600")}
+    {t(30, 208, "AI/ML", 36, ACCENT, weight="600")}
+    {t(30, 252, "engineering", 36, TEXT, weight="600")}
+    {t(30, 296, "roles", 36, TEXT, weight="600")}"""
+    tile("status", 384, 340, body, "Status, October 2026: open to AI/ML engineering roles.")
+
+
+def contact():
+    for name, label, value, size, font in [("site", "website", "kartikeyaagr.com", 32, SERIF),
+                                           ("email", "email", "kartikay3@outlook.com", 26, SANS)]:
         body = f"""
-    {t(30, 52, label, 16, MUTED, MONO)}{t(290, 54, "↗", 22, ACCENT, anchor="end")}
-    {t(30, 108, value, size, TEXT, font)}"""
-        tile(name, 320, 150, body, f"{label}: {value}")
+    {t(30, 54, label, 18, MUTED, MONO)}{t(450, 58, "↗", 26, ACCENT, anchor="end")}
+    {t(30, 116, value, size, TEXT, font)}"""
+        tile(name, 480, 150, body, f"{label}: {value}")
 
 
-for stale in OUT.glob("hero.svg"):
-    stale.unlink()   # replaced by intro + orbit
-for make in (intro, orbit, khana, smartroute, quark, laya, small):
+for stale in ("hero.svg",):
+    (OUT / stale).unlink(missing_ok=True)   # replaced by intro + orbit
+for make in (intro, orbit, khana, smartroute, quark, laya, fineprint, status, contact):
     make()
 print("wrote", *sorted(p.name for p in OUT.glob("*.svg")))
